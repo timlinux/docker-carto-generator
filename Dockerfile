@@ -33,7 +33,7 @@ RUN apt-get install -y libboost-dev libboost-filesystem-dev \
 
 
 # get a build environment going...
-RUN apt-get install \
+RUN apt-get install -y \
     libicu-dev \
     python-dev libxml2 libxml2-dev \
     libfreetype6 libfreetype6-dev \
@@ -53,6 +53,7 @@ RUN apt-get install \
 # Install cartogenerator
 RUN git clone git://github.com/rundel/carto-generator.git
 WORKDIR /carto-generator
+ENV TERM xterm
 RUN make
 
 
